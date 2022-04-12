@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { useCategories } from '../hooks/useCategories';
 import Select from 'react-select';
+import { Products } from './../components/Products';
 
-type Option = {
+interface Option {
   value: string;
   label: string;
-};
+}
 
 const Home: NextPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<
@@ -31,16 +32,17 @@ const Home: NextPage = () => {
     setSelectedCategory(option?.value);
   };
   return (
-    <div className="bg-[#ECECEC] p-5 h-screen w-screen">
+    <div className="bg-[#ECECEC] p-10 min-h-screen">
       <Head>
         <title>UPayments Store</title>
         <meta name="description" content="UPayments Home Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full w-full flex flex-col">
+      <main className="h-full w-full flex flex-col justify-around gap-5 sm:gap-12">
         <Header />
-        <section className="mt-5 w-full flex gap-5 flex-col sm:flex-row justify-between">
+        <section className="w-full flex gap-5 flex-col sm:flex-row justify-between">
           <input
+            aria-label="search input"
             type="text"
             placeholder="Apple Watch, Samsung S21, Macbook Pro, ..."
             className="bg-white rounded-xl shadow-md sm:w-1/2 lg:w-1/3 p-2 h-full"
@@ -71,6 +73,9 @@ const Home: NextPage = () => {
               </div>
             )}
           </div>
+        </section>
+        <section className="px-12 sm:px-18 lg:px-20 xl:px-36 flex justify-center items-center">
+          <Products category={selectedCategory} />
         </section>
       </main>
     </div>

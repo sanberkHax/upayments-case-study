@@ -1,17 +1,21 @@
 import useSWR from 'swr';
 
-type Categories = [
+type Products = [
   {
     createdAt: string;
     id: string;
     name: string;
+    avatar: string;
+    category: string;
+    description: string;
+    price: string;
   }
 ];
 
-export const useCategories = (): {
-  categories: Categories;
-  categoriesLoading: boolean;
-  categoriesError: { message: string };
+export const useProducts = (): {
+  products: Products;
+  productsLoading: boolean;
+  productsError: { message: string };
 } => {
   const fetcher = async (url: string) => {
     const res = await fetch(url);
@@ -29,13 +33,13 @@ export const useCategories = (): {
     return res.json();
   };
   const { data, error } = useSWR(
-    'https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/',
+    'https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/',
     fetcher
   );
 
   return {
-    categories: data,
-    categoriesLoading: !error && !data,
-    categoriesError: error,
+    products: data,
+    productsLoading: !error && !data,
+    productsError: error,
   };
 };
