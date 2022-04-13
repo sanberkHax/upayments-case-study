@@ -5,6 +5,7 @@ import Select from 'react-select';
 import { Header } from '../components/Header';
 import { useCategories } from '../hooks/useCategories';
 import { Products } from './../components/Products';
+import { CreateButton } from '../components/CreateButton';
 
 interface Option {
   value: string;
@@ -77,6 +78,7 @@ const Home: NextPage = () => {
         <section className="px-12 sm:px-18 lg:px-20 xl:px-36 flex justify-center items-center">
           <Products category={selectedCategory} />
         </section>
+        <CreateButton />
       </main>
     </div>
   );
