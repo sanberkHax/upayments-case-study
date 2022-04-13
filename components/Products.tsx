@@ -7,11 +7,14 @@ type Props = {
 };
 
 export const Products: FC<Props> = ({ category }): JSX.Element => {
+  // Fetch products
   const { products, productsLoading, productsError } = useProducts();
 
   if (productsLoading) return <h1>Loading...</h1>;
   if (productsError)
     return <h1 className="text-red-500">{productsError.message}</h1>;
+
+  // Return filtered products if there's a selected category
   if (category) {
     const filteredProducts = products.filter(
       (product) => product.category === category

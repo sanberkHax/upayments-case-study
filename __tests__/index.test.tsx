@@ -40,11 +40,11 @@ describe('Home', () => {
     render(<Home />);
   });
   it('renders the header', () => {
-    const heading = screen.getByRole('heading', {
+    const storeButton = screen.getByRole('button', {
       name: /UPayments Store/i,
     });
 
-    expect(heading).toBeInTheDocument();
+    expect(storeButton).toBeInTheDocument();
   });
   it('renders search input', () => {
     const input = screen.getByPlaceholderText(/Apple Watch/i);

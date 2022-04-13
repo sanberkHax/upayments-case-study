@@ -1,9 +1,9 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
+import type { NextPage } from 'next';
 import React, { useState } from 'react';
+import Select from 'react-select';
 import { Header } from '../components/Header';
 import { useCategories } from '../hooks/useCategories';
-import Select from 'react-select';
 import { Products } from './../components/Products';
 
 interface Option {
