@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { DeleteButton } from './DeleteButton';
+
 type Props = {
   id: string;
   name: string;
@@ -23,7 +25,8 @@ export const ProductItem: FC<Props> = ({
         aria-label="Product"
         className="flex hover:scale-95 transition flex-col gap-3 justify-around items-center"
       >
-        <div className="bg-white rounded-xl p-5 ">
+        <div className="bg-white rounded-xl p-5 relative">
+          <DeleteButton id={id} />
           <Image
             loader={myLoader}
             src={avatar}
