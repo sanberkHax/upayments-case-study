@@ -6,7 +6,7 @@ import { Products } from './../components/Products';
 import { CreateButton } from '../components/CreateButton';
 import { CategorySelect } from '../components/CategorySelect';
 
-const Home: NextPage = () => {
+const Home: NextPage = (): JSX.Element => {
   const [selectedCategory, setSelectedCategory] = useState<
     string | undefined
   >();
@@ -18,20 +18,20 @@ const Home: NextPage = () => {
         <meta name="description" content="UPayments Home Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full w-full flex flex-col justify-around gap-5 sm:gap-12">
+      <main className="h-full lg:mx-16 xl:mx-28 2xl:mx-48 flex flex-col justify-around gap-5 sm:gap-12">
         <Header />
         <section className="w-full flex gap-5 flex-col sm:flex-row justify-between">
           <input
             aria-label="search input"
             type="text"
             placeholder="Apple Watch, Samsung S21, Macbook Pro, ..."
-            className="bg-white rounded-xl shadow-md sm:w-1/2 lg:w-1/3 p-2 h-full"
+            className="bg-white rounded-xl shadow-md w-full sm:w-[50%] p-2 h-full"
           />
-          <div className="sm:w-1/3 lg:w-1/5 flex justify-center items-center">
+          <div className="w-full sm:w-[25%] flex justify-center items-center">
             <CategorySelect setSelectedCategory={setSelectedCategory} />
           </div>
         </section>
-        <section className="px-12 sm:px-18 lg:px-20 xl:px-36 flex justify-center items-center">
+        <section className="flex justify-center items-center">
           <Products category={selectedCategory} />
         </section>
         <CreateButton />

@@ -21,7 +21,7 @@ export const Products: FC<Props> = ({ category }): JSX.Element => {
     );
 
     return (
-      <div className="grid gap-5 text-center md:gap-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <ul className="grid gap-5 text-center md:gap-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredProducts &&
           filteredProducts?.map((product) => (
             <ProductItem
@@ -29,14 +29,14 @@ export const Products: FC<Props> = ({ category }): JSX.Element => {
               id={product.id}
               name={product.name}
               avatar={product.avatar}
-              price={`$${product.price}`}
+              price={`${product.price}`}
             />
           ))}
-      </div>
+      </ul>
     );
   }
   return (
-    <div className="grid gap-10 text-center  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <ul className="grid gap-10 text-center  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {products &&
         products?.map((product) => (
           <ProductItem
@@ -47,6 +47,6 @@ export const Products: FC<Props> = ({ category }): JSX.Element => {
             price={`$${product.price}`}
           />
         ))}
-    </div>
+    </ul>
   );
 };

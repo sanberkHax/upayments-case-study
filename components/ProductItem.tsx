@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DeleteButton } from './DeleteButton';
 
-type Props = {
+export type Props = {
   id: string;
   name: string;
   avatar: string;
@@ -21,14 +21,15 @@ export const ProductItem: FC<Props> = ({
   };
   return (
     <Link href={`/products/${id}`}>
-      <button
+      <li
         aria-label="Product"
-        className="flex hover:scale-95 transition flex-col gap-3 justify-around items-center"
+        className="cursor-pointer flex hover:scale-95 transition flex-col gap-3 justify-around items-center"
       >
-        <div className="bg-white rounded-xl p-5 relative">
+        <div className="bg-white rounded-xl p-8 relative">
           <DeleteButton id={id} />
           <Image
             loader={myLoader}
+            unoptimized
             src={avatar}
             alt={name}
             width={180}
@@ -37,8 +38,8 @@ export const ProductItem: FC<Props> = ({
           />
         </div>
         <h1>{name}</h1>
-        <h2>{price}</h2>
-      </button>
+        <h2>{`$${price}`}</h2>
+      </li>
     </Link>
   );
 };

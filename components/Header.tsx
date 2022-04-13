@@ -1,5 +1,6 @@
 import Link from 'next/link';
-export const Header = () => {
+import { FC } from 'react';
+export const Header: FC = (): JSX.Element => {
   return (
     <header className="flex rounded-xl shadow-md justify-between p-3 bg-white">
       <Link href="/">

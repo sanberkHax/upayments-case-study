@@ -51,6 +51,7 @@ export const CategorySelect: FC<Props> = ({
                 zIndex: 99,
               }),
             }}
+            name="categories"
             options={options}
             onChange={changeHandler}
             isClearable={true}

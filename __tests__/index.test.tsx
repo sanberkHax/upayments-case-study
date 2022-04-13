@@ -1,15 +1,30 @@
-import { render, screen } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import Home from '../pages/index';
+import selectEvent from 'react-select-event';
 
 const mockedProducts = {
   products: [
     {
       createdAt: 'date',
-      name: 'name',
-      avatar: 'avatar',
-      id: 'id',
-      price: 'price',
-      category: 'category',
+      name: 'electronic product',
+      avatar: 'test avatar',
+      id: '1',
+      price: '1',
+      category: 'electronics',
+      description: 'description',
+    },
+    {
+      createdAt: 'date',
+      name: 'furniture product',
+      avatar: 'test avatar',
+      id: '2',
+      price: '2',
+      category: 'furnitures',
       description: 'description',
     },
   ],
@@ -20,21 +35,24 @@ const mockedCategories = {
   categories: [
     {
       createdAt: 'date',
-      name: 'name',
-      id: 'id',
+      name: 'electronics',
+      id: '1',
+    },
+    {
+      createdAt: 'date',
+      name: 'furnitures',
+      id: '2',
     },
   ],
   categoriesLoading: false,
   categoriesError: null,
 };
-
 jest.mock('../hooks/useProducts', () => ({
   useProducts: () => mockedProducts,
 }));
 jest.mock('../hooks/useCategories', () => ({
   useCategories: () => mockedCategories,
 }));
-
 describe('Home', () => {
   beforeEach(() => {
     render(<Home />);
@@ -48,14 +66,19 @@ describe('Home', () => {
   });
   it('renders search input', () => {
     const input = screen.getByPlaceholderText(/Apple Watch/i);
+
     expect(input).toBeInTheDocument();
   });
-  it('renders categories', () => {
-    const categorySelect = screen.getByText(/Categories/i);
+  it('renders categories', async () => {
+    const categorySelect = await screen.findByText(/Categories/i);
+
     expect(categorySelect).toBeInTheDocument();
   });
-  it('renders a product', () => {
-    const product = screen.getByLabelText(/Product/i);
-    expect(product).toBeInTheDocument();
+  it('renders products', () => {
+    const electronicProduct = screen.getByText(/electronic product/i);
+    const furnitureProduct = screen.getByText(/furniture product/i);
+
+    expect(electronicProduct).toBeInTheDocument();
+    expect(furnitureProduct).toBeInTheDocument();
   });
 });

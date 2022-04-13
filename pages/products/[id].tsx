@@ -24,19 +24,20 @@ const ProductDetails: NextPage = (): JSX.Element => {
         <meta name="description" content="UPayments Home Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full w-full flex flex-col justify-around gap-5 sm:gap-12">
+      <main className="h-full lg:mx-16 xl:mx-28 2xl:mx-48 flex flex-col justify-around gap-5 sm:gap-12">
         <Header />
         {productLoading ? (
           <h1 className="text-center">Loading...</h1>
         ) : productError ? (
           <h1 className="text-red-500">{productError.message}</h1>
         ) : (
-          <section className="md:px-12 lg:px-36 xl:px-72">
-            <div className="border-b-4 border-black my-5 pb-5 flex flex-col sm:flex-row gap-5 sm:gap-24 lg:gap-52 justify-center">
+          <section className="sm:mx-12 md:mx-20 lg:mx-28 xl:mx-48 2xl:mx-56">
+            <div className="border-b-4 border-black my-5 pb-5 flex flex-col sm:flex-row gap-5 sm:gap-12 lg:gap-24 justify-center">
               <div className="bg-white mx-5 rounded-xl p-5 flex justify-center items-center">
                 {product && (
                   <Image
                     loader={myLoader}
+                    unoptimized
                     src={product.avatar}
                     alt={product.name}
                     width={180}
@@ -45,7 +46,7 @@ const ProductDetails: NextPage = (): JSX.Element => {
                   />
                 )}
               </div>
-              <div className="flex flex-col justify-around items-center">
+              <div className=" text-center flex flex-col justify-around items-center">
                 <h1 className="text-2xl md:text-4xl font-bold">
                   {product.name}
                 </h1>
@@ -53,8 +54,8 @@ const ProductDetails: NextPage = (): JSX.Element => {
               </div>
             </div>
             <div>
-              <h2 className="text-xl font-bold">Description</h2>
-              <p>{product.description}</p>
+              <h2 className="text-xl  font-bold">Description</h2>
+              <p className="text-teal-900">{product.description}</p>
             </div>
           </section>
         )}

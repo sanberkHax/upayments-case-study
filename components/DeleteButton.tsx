@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSWRConfig } from 'swr';
-export const DeleteButton = ({ id }: { id: string }) => {
+
+export const DeleteButton = ({ id }: { id: string }): JSX.Element => {
   const { mutate } = useSWRConfig();
 
   const clickHandler = async (
@@ -23,7 +24,7 @@ export const DeleteButton = ({ id }: { id: string }) => {
     }
   };
   return (
-    <button onClick={clickHandler}>
+    <button aria-label="delete button" onClick={clickHandler}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

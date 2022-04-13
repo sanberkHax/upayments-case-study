@@ -36,7 +36,7 @@ export const useProduct = (
     `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`,
     fetcher
   );
-  console.log(data);
+
   return {
     product: data,
     productLoading: !error && !data,
