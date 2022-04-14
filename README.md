@@ -1,6 +1,6 @@
 # Upayments Case Study
 
-I had no prior experience with Typescript and Tailwind CSS before this project. I've studied them from scratch while building the website.
+I had no prior experience with Typescript and Tailwind CSS before this project. I've studied them from scratch while building the website to demonstrate my quick learning and adaptation skills.
 
 
 
