@@ -44,7 +44,7 @@ export const Products: FC<Props> = ({ category }): JSX.Element => {
             id={product.id}
             name={product.name}
             avatar={product.avatar}
-            price={`$${product.price}`}
+            price={`${product.price}`}
           />
         ))}
     </ul>

@@ -12,7 +12,7 @@ const Home: NextPage = (): JSX.Element => {
   >();
 
   return (
-    <div className="bg-[#ECECEC] p-10 min-h-screen">
+    <div className="bg-[#ECECEC] p-5 sm:p-10 min-h-screen">
       <Head>
         <title>UPayments Store</title>
         <meta name="description" content="UPayments Home Page" />

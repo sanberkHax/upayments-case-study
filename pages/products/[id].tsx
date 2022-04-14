@@ -18,10 +18,10 @@ const ProductDetails: NextPage = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-[#ECECEC] p-10 min-h-screen">
+    <div className="bg-[#ECECEC] p-5 sm:p-10 min-h-screen">
       <Head>
-        <title>UPayments Store</title>
-        <meta name="description" content="UPayments Home Page" />
+        <title>{product?.name}</title>
+        <meta name="description" content="Product Details" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-full lg:mx-16 xl:mx-28 2xl:mx-48 flex flex-col justify-around gap-5 sm:gap-12">
@@ -33,7 +33,7 @@ const ProductDetails: NextPage = (): JSX.Element => {
         ) : (
           <section className="sm:mx-12 md:mx-20 lg:mx-28 xl:mx-48 2xl:mx-56">
             <div className="border-b-4 border-black my-5 pb-5 flex flex-col sm:flex-row gap-5 sm:gap-12 lg:gap-24 justify-center">
-              <div className="bg-white mx-5 rounded-xl p-5 flex justify-center items-center">
+              <div className="bg-white sm:mx-5 rounded-xl p-5 flex justify-center items-center">
                 {product && (
                   <Image
                     loader={myLoader}
